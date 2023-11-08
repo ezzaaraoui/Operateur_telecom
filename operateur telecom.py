@@ -25,6 +25,7 @@ while True:
         print("2 - Afficher la liste du côut mensuelle par offre")
         print("3 - Afficher l’offre la plus intéressante")
         print("4 - Quitter le programme")
+
         n = int(input("donner votre choix : "))
 
         if n == 1:
@@ -37,7 +38,17 @@ while True:
                 i += 1
         elif n == 3:
             minp = min(cout(durre))
-            print(f"l’offre la plus intéressante est : {minp}DH")
+            offres = [
+            [200, float("inf"), 0],
+            [100, 120, 0.5],
+            [50, 60, 1],
+            [20, 30, 1.5],
+            [0, 0, 2],
+            ]
+            for offre in offres:
+                if offre[0]==minp-(durre-offre[1])*offre[2]:
+                    of=offre[0]
+            print(f"l’offre la plus intéressante est : {of}DH")
         elif n == 4:
             print("au revoir")
             break
@@ -48,3 +59,4 @@ while True:
         break
     else :
         raise Exception (f"vous avez saisi un element autre que o et n")
+   
